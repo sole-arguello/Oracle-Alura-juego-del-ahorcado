@@ -13,25 +13,33 @@
       <h1 class="titulo">Juego del Ahorcado</h1>
       <button class="btn" id="iniciar-juego" value="iniciarJuego">INICIAR JUEGO</button>
     </div>
-    <!-- Input donde se comprueban las letras ingresadas por el usuario -->
-    <div style="text-align:center; margin: 50px 0px;">
-      <input type="text" id="letra" placeholder="Introdusca una letra">
-      <input type="button" id="boton" value="Comprobar"><br>
-    </div>
-    <!-- guiones y frase adivinada -->
-    <div id="frase-Adivinada" style="text-align:center; margin: 50px 0px;"></div><br>
-    <div id="intentos" style="text-align:center; margin: 50px 0px;" >Quedan 4 intentos</div>
+      
 
     <!-- boton de agregar palabra -->
     <div style="text-align:center">
       <input class="text-input" type="text" id="input-nueva-palabra" placeholder="Escriba una nueva palabra">
       <button class="btn" id="nueva-palabra">AGREGAR PALABRA</button> 
     </div>
-    
+    <!--------------------------------------------------------------------------------------->
     <!-- dibujo del ahorcado height="360px" width="294px" -->
-    <div id="canvas-juego"style="text-align:center;">
-      <canvas id="dibujo-ahorcado" height="800px" width="1200px">Tu navegador no acepta canvas</canvas>
-    </div>
+    <section id="canvas-juego" >
+      <!---->
+      <div class="dibujo" style = "float: left;">
+        <canvas id="dibujo-ahorcado" height="360" width="220">
+        Tu navegador no acepta canvas</canvas>
+      </div>
+
+      <div class="guiones-frase" style = "float: left;">
+      <!-- Input donde se comprueban las letras ingresadas por el usuario -->
+      <div style="text-align:center; margin: 50px 50px;">
+        <input type="text" id="letra" placeholder="Introdusca una letra">
+        <input type="button" id="boton" value="Comprobar"><br>
+        <!-- guiones y frase adivinada -->
+        <p id="frase-Adivinada" style="text-align:center; margin: 50px 50px;"><br>
+        <p id="intentos" style="text-align:center; margin: 50px 0px;" >Quedan 4 intentos</p>
+      </div>
+
+    </section>
 
     <!-- archivos de js -->
     <script type="text/javascript" src="canvas.js"></script>

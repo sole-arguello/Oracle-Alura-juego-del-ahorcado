@@ -7,10 +7,12 @@ let palabraOculta = "";
 let palabraAdivinada = "";
 let intentos = 4;// remplaza al dibujo
 
-//boton comprobar
-document.getElementById("boton").addEventListener("click", comprobarLetra);
+
 //boton iniciar juego
 document.getElementById("iniciar-juego").addEventListener("click", guionesDePalabra);
+//boton comprobar
+document.getElementById("boton").addEventListener("click", comprobarLetra);
+
 
 
 //activada por BOTON INICIAR JUEGO, y coloca los guiones
@@ -24,29 +26,32 @@ function guionesDePalabra(){
     }
     // muestra los guiones
     document.getElementById("frase-Adivinada").innerHTML = palabraAdivinada;
+    
 }
 
+//Validación del texto
+function validation(param) {
+    let reg = /^[a-zñ]*[a-zñ \s]*[a-zñ]$/g
+    return reg.test(param)
+}
 
 //-------------------------------------------------------------------------------------
 function comprobarLetra(){
 
-    let letra = document.getElementById("letra").value.toLowerCase();
-    palabraOculta = palabraOculta.toLowerCase();
+    let letraIngresada = document.getElementById("letra").value;
+    //btnComprobar.disabled = true;
+    console.log(letraIngresada);
+    palabraOculta = palabraOculta;
 
     let adivinada = ""; // cadena vacia, donde se guardara la palabra oculta
+
     //recorro la palabra
     for(let i=0; i<palabraOculta.length; i++){
-        /*let reg = /^[a-zñ]*[a-zñ \s]*[a-zñ]$/g;
-        if(reg.test(letra.value)){
-    
-            alert("Ingrese solo letras minusculas y sin acentos");
-            console.log(letra.value);
-            
-        }*/
+        
         // comparo la letra ingresada = palabra oculta
-        if(letra == palabraOculta[i]){
+        if(letraIngresada == palabraOculta[i]){
             //si coincide que muestre la letra con espacios
-            adivinada = adivinada + letra + " ";
+            adivinada = adivinada + letraIngresada + " ";
         }else{
             //sino que muestre el guion bajo
             adivinada = adivinada + palabraAdivinada[i*2] + " ";
@@ -55,7 +60,7 @@ function comprobarLetra(){
     
     console.log(palabraAdivinada);
     console.log("palabra adivinada  " + adivinada);
- //------------- validar los intentos fallidos -----------------------------------------------------------
+ //------------- validar los intentos fallidos --------------------------------------------------------
     if(adivinada == palabraAdivinada){
         //la letra no coincide descuenta el intento
         intentos--;//resto
@@ -78,4 +83,11 @@ function comprobarLetra(){
     document.getElementById("letra").value = "";
     //enfoca el cursor en el input
     document.getElementById("letra").focus();
-}
+    dibujar();
+    /*//Evento input
+    letraIngresada.addEventListener("input", (e) => {
+        validation(letraIngresada.value) == true ? btnComprobar.disabled = false : btnComprobar.disabled = true;
+
+    });*/
+};
+

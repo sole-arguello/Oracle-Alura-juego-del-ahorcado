@@ -26,4 +26,17 @@
   height: 50px;
   margin-left: auto;
   margin-right: auto;
+
 }
+#canvas-juego{
+  margin-top: 50px;
+  margin-left: 300px;
+}
+.dibujo {
+  margin-left: 50px;
+}
+.guiones-frase{
+  margin-top: 100px;
+  margin-left: 50px;
+}
+
