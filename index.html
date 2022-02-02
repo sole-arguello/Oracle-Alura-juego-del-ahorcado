@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ahorcado</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- boton iniciar juego -->
+    <div style="text-align:center; margin: 50px 0px;">
+      <h1 class="titulo">Juego del Ahorcado</h1>
+      <button class="btn" id="iniciar-juego" value="iniciarJuego">INICIAR JUEGO</button>
+    </div>
+    <!-- Input donde se comprueban las letras ingresadas por el usuario -->
+    <div style="text-align:center; margin: 50px 0px;">
+      <input type="text" id="letra" placeholder="Introdusca una letra">
+      <input type="button" id="boton" value="Comprobar"><br>
+    </div>
+    <!-- guiones y frase adivinada -->
+    <div id="frase-Adivinada" style="text-align:center; margin: 50px 0px;"></div><br>
+    <div id="intentos" style="text-align:center; margin: 50px 0px;" >Quedan 4 intentos</div>
+
+    <!-- boton de agregar palabra -->
+    <div style="text-align:center">
+      <input class="text-input" type="text" id="input-nueva-palabra" placeholder="Escriba una nueva palabra">
+      <button class="btn" id="nueva-palabra">AGREGAR PALABRA</button> 
+    </div>
+    
+    <!-- dibujo del ahorcado height="360px" width="294px" -->
+    <div id="canvas-juego"style="text-align:center;">
+      <canvas id="dibujo-ahorcado" height="800px" width="1200px">Tu navegador no acepta canvas</canvas>
+    </div>
+
+    <!-- archivos de js -->
+    <script type="text/javascript" src="canvas.js"></script>
+    <script type="text/javascript" src="ahorcado.js"></script>
+
+  </body>
+</html>
