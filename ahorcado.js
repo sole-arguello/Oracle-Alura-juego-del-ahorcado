@@ -8,21 +8,28 @@ input.hidden = false;
 btnComprobar.hidden = false;  
 btnComprobar.disabled = false;
 });
-//boton comprobar
+//boton comprobar con validacion, no permite enviar el input vacio
 let btnComprobar = document.getElementById("boton");
-btnComprobar.addEventListener("click", comprobarLetra);
+btnComprobar.addEventListener("click", ()=>{
+    //verifico que no ingrese vacio el input
+    if(input.value == ""){
+        alert("vacio");
+    }else{
+        comprobarLetra();
+    }
+});
 
-let input = document.getElementById("letra");
+//------------------- Funcion de comprobar letras --------------------------
+let input = document.getElementById("letra"); //capura el input
 
-//-------------------------------------------------------------------------------------
 function comprobarLetra(){
-
+    
     let letraIngresada = input.value.toUpperCase();
     console.log(letraIngresada);
     palabraOculta = palabraOculta.toUpperCase();
-
+    
     let adivinada = ""; // cadena vacia, donde se guardara la palabra oculta
-
+    
     //recorro la palabra
     for(let i=0; i<palabraOculta.length; i++){
         
@@ -30,19 +37,22 @@ function comprobarLetra(){
         if(letraIngresada == palabraOculta[i]){
             //si coincide que muestre la letra con espacios
             adivinada = adivinada + letraIngresada + " ";
-        }else{
-            //sino que muestre el guion bajo
-            adivinada = adivinada + palabraAdivinada[i*2] + " ";
         }
+        else{
+             //sino que muestre el guion bajo
+             adivinada = adivinada + palabraAdivinada[i*2] + " ";
+        }
+              
     }
-    
     console.log(palabraAdivinada);
     console.log("palabra adivinada  " + adivinada);
+    
  //------------- validar los intentos fallidos --------------------------------------------------------
     if(adivinada == palabraAdivinada){
         //la letra no coincide descuenta el intento
         intentos--;//resto
         document.getElementById("intentos").innerHTML = "Quedan: " + intentos + " intentos";//actualizo
+        
     }
 
     palabraAdivinada = adivinada;

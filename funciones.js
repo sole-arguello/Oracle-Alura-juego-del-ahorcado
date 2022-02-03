@@ -1,5 +1,5 @@
 // creo el arreglo con las palabras
-let palabras = Array("ahorcado", "casa", "palabra", "juego", "murcielago",
+let palabras = Array("ahorcado", "casa", "palabra", "juego", "murcielago", "mayúsculas",
                         "paleta", "cuerpo", "pala", "nombre", "cancion", "cielo");
 
 //cadenas vacias
@@ -24,8 +24,30 @@ function guionesDePalabra(){
     dibujarBase();    
 }
 
-//-----------------------------------------------------------------------------------------
+//------------------------------ Validacion del Solo Letras ----------------------------
+function soloLetras(e){
+    //eventos del teclado, propiedad whitch que detecta las teclas al momento de precionar
+    let key = e.keyCode || e.which;
+    let tecla = String.fromCharCode(key).toString();//deteccion del teclado
+    let letras = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyzüéáíóúÁÉÍÓÚÜ";
 
+    
+    let especiales = [8,13];// teclas enter y retroceso
+    let teclaEspecial = false;
+    //para detectar tecla enter y retroceso
+    for(let i in especiales){
+        if(key == especiales[i]){
+            teclaEspecial = true;//enconto
+            break;
+        }
+    }
+    //si edentifica la tecla de retroceso, 
+    if(letras.indexOf(tecla) == -1 && !teclaEspecial){
+        alert("Igrese solo letras");
+        return false;
+    }
+}
+//--------------- Dibujo del Ahorcado ---------------------------------------------------
 function dibujarAhorcado(){
     
     let lienzo = document.querySelector("#dibujo-ahorcado");
