@@ -1,47 +1,22 @@
-// creo el arreglo con las palabras
-let palabras = Array("ahorcado", "casa", "palabra", "juego", "murcielago",
-                        "paleta", "cuerpo", "pala", "nombre", "cancion", "cielo");
-
-//cadenas vacias
-let palabraOculta = "";
-let palabraAdivinada = "";
-let intentos = 4;// remplaza al dibujo
-
-
+//btnInput.hidden = false;
 //boton iniciar juego
-document.getElementById("iniciar-juego").addEventListener("click", guionesDePalabra);
+document.getElementById("iniciar-juego").addEventListener("click",() =>{
+
+    palabraAdivinada ="";
+    limpiarCambas();
+    guionesDePalabra();
+btnComprobar.hidden = false;  
+btnComprobar.disabled = false;
+});
 //boton comprobar
-document.getElementById("boton").addEventListener("click", comprobarLetra);
-
-
-
-//activada por BOTON INICIAR JUEGO, y coloca los guiones
-function guionesDePalabra(){
-    // elije la palabra
-    palabraOculta = palabras[Math.floor(Math.random() * palabras.length)];
-    console.log(palabraOculta);
-    for(let i=0; i < palabraOculta.length; i++){
-// Los guiones que van a ser generados segun la palabra seleccionada aleatoria
-        palabraAdivinada = palabraAdivinada + "_ ";
-    }
-    // muestra los guiones
-    document.getElementById("frase-Adivinada").innerHTML = palabraAdivinada;
-    
-}
-
-//Validación del texto
-function validation(param) {
-    let reg = /^[a-zñ]*[a-zñ \s]*[a-zñ]$/g
-    return reg.test(param)
-}
-
+let btnComprobar = document.getElementById("boton");
+btnComprobar.addEventListener("click", comprobarLetra);
 //-------------------------------------------------------------------------------------
 function comprobarLetra(){
 
-    let letraIngresada = document.getElementById("letra").value;
-    //btnComprobar.disabled = true;
+    let letraIngresada = document.getElementById("letra").value.toUpperCase();
     console.log(letraIngresada);
-    palabraOculta = palabraOculta;
+    palabraOculta = palabraOculta.toUpperCase();
 
     let adivinada = ""; // cadena vacia, donde se guardara la palabra oculta
 
@@ -70,7 +45,7 @@ function comprobarLetra(){
     palabraAdivinada = adivinada;
      //muestra la palabra encontrada
     document.getElementById("frase-Adivinada").innerHTML = palabraAdivinada;
-//------------------------valido si gano o perdio ---------------------------------------------------------
+//------------------------ valido si gano o perdio ---------------------------------------------------------
     if(intentos==0){
         alert("perdiste :( ");//perdio
     }
@@ -83,11 +58,8 @@ function comprobarLetra(){
     document.getElementById("letra").value = "";
     //enfoca el cursor en el input
     document.getElementById("letra").focus();
-    dibujar();
-    /*//Evento input
-    letraIngresada.addEventListener("input", (e) => {
-        validation(letraIngresada.value) == true ? btnComprobar.disabled = false : btnComprobar.disabled = true;
 
-    });*/
-};
+    dibujarAhorcado();
+}
+
 
