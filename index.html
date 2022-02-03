@@ -32,11 +32,11 @@
       <div class="guiones-frase" style = "float: left;">
       <!-- Input donde se comprueban las letras ingresadas por el usuario -->
       <div style="text-align:center; margin: 50px 50px;">
-        <input type="text" id="letra" placeholder="Introdusca una letra">
-        <input type="button" id="boton" value="Comprobar"><br>
+        <input type="text" id="letra" placeholder="Introdusca una letra" ><!--hidden-->
+        <input type="button" id="boton" value="Comprobar" hidden><br>
         <!-- guiones y frase adivinada -->
         <p id="frase-Adivinada" style="text-align:center; margin: 50px 50px;"><br>
-        <p id="intentos" style="text-align:center; margin: 50px 0px;" >Quedan 4 intentos</p>
+        <p id="intentos" style="text-align:center; margin: 50px 0px;" ></p>
       </div>
 
     </section>
@@ -44,6 +44,6 @@
     <!-- archivos de js -->
     <script type="text/javascript" src="canvas.js"></script>
     <script type="text/javascript" src="ahorcado.js"></script>
-
+    <script type="text/javascript" src="funciones.js"></script>
   </body>
 </html>
