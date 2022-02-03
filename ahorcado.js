@@ -1,21 +1,23 @@
-//btnInput.hidden = false;
 //boton iniciar juego
 document.getElementById("iniciar-juego").addEventListener("click",() =>{
 
     palabraAdivinada ="";
     limpiarCambas();
     guionesDePalabra();
- 
+input.hidden = false;
 btnComprobar.hidden = false;  
 btnComprobar.disabled = false;
 });
 //boton comprobar
 let btnComprobar = document.getElementById("boton");
 btnComprobar.addEventListener("click", comprobarLetra);
+
+let input = document.getElementById("letra");
+
 //-------------------------------------------------------------------------------------
 function comprobarLetra(){
 
-    let letraIngresada = document.getElementById("letra").value.toUpperCase();
+    let letraIngresada = input.value.toUpperCase();
     console.log(letraIngresada);
     palabraOculta = palabraOculta.toUpperCase();
 
