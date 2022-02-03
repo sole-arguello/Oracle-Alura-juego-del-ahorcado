@@ -5,6 +5,7 @@ document.getElementById("iniciar-juego").addEventListener("click",() =>{
     palabraAdivinada ="";
     limpiarCambas();
     guionesDePalabra();
+ 
 btnComprobar.hidden = false;  
 btnComprobar.disabled = false;
 });

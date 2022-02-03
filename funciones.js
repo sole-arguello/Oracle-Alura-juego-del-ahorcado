@@ -6,6 +6,8 @@ let palabras = Array("ahorcado", "casa", "palabra", "juego", "murcielago",
 let palabraOculta = "";
 let palabraAdivinada = "";
 let intentos = 9;// remplaza al dibujo
+
+
 //----------------------------- INICIO ---------------------------------------------------
 //activada por BOTON INICIAR JUEGO, y coloca los guiones
 function guionesDePalabra(){
@@ -22,7 +24,7 @@ function guionesDePalabra(){
     dibujarBase();    
 }
 
-
+//-----------------------------------------------------------------------------------------
 
 function dibujarAhorcado(){
     
