@@ -69,17 +69,7 @@ function dibujarPiernaIzquierda(){
     pincel.stroke();
 
 }
+//-----------------Limpia el dibujo ---------------------
 function limpiarCambas(){
     pincel.clearRect(0,0, 220,360);
 }
-/*
-dibujarBase();
-dibujarMastil();
-dibujarTrasversoMastil();
-dibujarSoga();
-dibujarCabeza();
-dibujarCuerpo();
-dibujarBrazoDerecho();
-dibujarBrazoIzquierdo();
-dibujarPiernaDerecha();
-dibujarPiernaIzquierda();*/

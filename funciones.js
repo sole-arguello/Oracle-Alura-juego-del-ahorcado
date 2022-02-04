@@ -6,6 +6,8 @@ let palabras = Array("ahorcado", "casa", "palabra", "juego", "murcielago", "may√
 let palabraOculta = "";
 let palabraAdivinada = "";
 let intentos = 9;// remplaza al dibujo
+let letrasRepetidas = [];
+let letrasErradas = [];
 
 
 //----------------------------- INICIO ---------------------------------------------------
@@ -47,8 +49,28 @@ function soloLetras(e){
         return false;
     }
 }
+
+// Verifica y descarta las repatidas y guarda para mostrar las erradas ----------------
+
+function mostrarLetrasErradas(letraIngresada){
+    letra = letraIngresada;
+    console.log(letra);
+    let agrego = false;
+    //si no esta incluida la agrego
+    if(!letrasErradas.includes(letra)){
+        letrasErradas.push(letra);
+        //muestro
+        errores.innerHTML = "LETRAS ERRADAS: " + letrasErradas;
+        agrego = true;
+    }else{
+        //guardo las repetidas pero no las muestro
+        letrasRepetidas.push(letra);
+        alert("Ya utilizo la " +  letra);
+    }
+    return agrego;
+}
 //--------------- Dibujo del Ahorcado ---------------------------------------------------
-function dibujarAhorcado(){
+function dibujarAhorcado(intentos){
     
     let lienzo = document.querySelector("#dibujo-ahorcado");
     
