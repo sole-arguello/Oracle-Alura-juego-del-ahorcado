@@ -10,9 +10,10 @@ let letrasRepetidas = [];
 let letrasErradas = [];
 
 //------------------- Agregar palabras ------------------------
-
 function agregarPalabra(palabras){
+    
     let agregarPalabras = document.getElementById("input-nueva-palabra").value;
+
     palabras.push(agregarPalabras);
     console.log(palabras);
 
