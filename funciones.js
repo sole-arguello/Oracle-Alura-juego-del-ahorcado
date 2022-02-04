@@ -9,7 +9,14 @@ let intentos = 9;// remplaza al dibujo
 let letrasRepetidas = [];
 let letrasErradas = [];
 
+//------------------- Agregar palabras ------------------------
 
+function agregarPalabra(palabras){
+    let agregarPalabras = document.getElementById("input-nueva-palabra").value;
+    palabras.push(agregarPalabras);
+    console.log(palabras);
+
+}
 //----------------------------- INICIO ---------------------------------------------------
 //activada por BOTON INICIAR JUEGO, y coloca los guiones
 function guionesDePalabra(){
