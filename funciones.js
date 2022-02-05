@@ -12,14 +12,13 @@ let letrasErradas = [];
 //------------------- Agregar palabras ------------------------
 function agregarPalabra(palabras){
     
-    let agregarPalabras = document.getElementById("input-nueva-palabra").value;
-
-    palabras.push(agregarPalabras);
+    //let nuevaPalabra = document.getElementById("input-nueva-palabra").value;
+    
+    palabras.push(nuevaPalabra);
     console.log(palabras);
-
 }
 //----------------------------- INICIO ---------------------------------------------------
-//activada por BOTON INICIAR JUEGO, y coloca los guiones
+//activada por el BOTON INICIAR JUEGO, y coloca los guiones
 function guionesDePalabra(){
     // elije la palabra
     palabraOculta = palabras[Math.floor(Math.random() * palabras.length)].toUpperCase();
