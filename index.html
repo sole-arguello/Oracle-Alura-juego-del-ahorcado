@@ -21,30 +21,29 @@
       <button class="btn" id="nueva-palabra">AGREGAR PALABRA</button> 
     </div>
 
+    
+    
+    
 <!------------ dibujo del ahorcado height="360px" width="294px"------------>
     <section id="canvas-juego" >
+            
       <!-------------- CANVAS -------------------------->
       <div class="dibujo" style = "float: left;">
         <!--------------- INTENTOS Y DIBUJO  ------->
         <p id="intentos" style="text-align:center; margin: 50px 0px;" ></p>
         <canvas id="dibujo-ahorcado" height="360" width="220"></canvas>
       </div>
+     
 
 <!-------------- PALABRA PARA ADIVINAR ---------------->
       <div class="guiones-frase" style = "float: left;">
-      
+        <div id="mge-ganar"></div> 
         <div style="text-align:center; margin: 50px 50px;">
           <!-- MUESTRA LETRAS ERRADAS--> 
           <p id="letras-erradas" hidden style="text-align:center; margin: 50px 0px;" ></p>
-          <!-- Input donde se comprueban las letras ingresadas por el usuario -->
-          <input type="text" onkeypress="return soloLetras(event);" required id="letra" 
-                            placeholder="Introdusca una letra" hidden>
-          <!-- BOTON COMPROBAR -->
-          <input type="button" id="boton" value="Comprobar" hidden><br>
+          
           <!-- guiones y frase adivinada -->
           <p id="frase-Adivinada" style="text-align:center; margin: 50px 50px;"><br></p>
-          <!-- respueta correcta -->
-          <p id="resultado" style="text-align:center; margin: 50px 50px;"><br></p>
         </div>
         
       </div>
@@ -55,5 +54,6 @@
     <script type="text/javascript" src="canvas.js"></script>
     <script type="text/javascript" src="ahorcado.js"></script>
     <script type="text/javascript" src="funciones.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>

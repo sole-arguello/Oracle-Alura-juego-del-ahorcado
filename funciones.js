@@ -3,6 +3,7 @@ let palabras = Array("ahorcado", "casa", "palabra", "juego", "murcielago", "may√
                         "paleta", "cuerpo", "pala", "nombre", "cancion", "cielo");
 
 //cadenas vacias
+let letra;
 let palabraOculta = "";
 let palabraAdivinada = "";
 let intentos = 9;// remplaza al dibujo
@@ -12,7 +13,7 @@ let letrasErradas = [];
 //------------------- Agregar palabras ------------------------
 function agregarPalabra(palabras){
     
-    //let nuevaPalabra = document.getElementById("input-nueva-palabra").value;
+    let nuevaPalabra = document.getElementById("input-nueva-palabra").value;
     
     palabras.push(nuevaPalabra);
     console.log(palabras);
@@ -110,7 +111,6 @@ function dibujarAhorcado(intentos){
         }
         if(intentos == 0){
             dibujarPiernaIzquierda();
-            btnComprobar.disabled = true;
         }
     }
 }

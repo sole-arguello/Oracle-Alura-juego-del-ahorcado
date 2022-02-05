@@ -1,6 +1,7 @@
 //boton iniciar juego
 document.getElementById("iniciar-juego").addEventListener("click",() =>{
-
+    
+    window.addEventListener("keydown", capturaTeclado);
     palabraAdivinada ="";
     limpiarCambas();
     guionesDePalabra();
@@ -12,9 +13,7 @@ document.getElementById("iniciar-juego").addEventListener("click",() =>{
     document.getElementById("intentos").innerHTML = 
     "Quedan: " + intentos + " intentos";//actualizo
     errores.hidden = false;// en html es true, cambio para que se vea
-    input.hidden = false;
-    btnComprobar.hidden = false;  
-    btnComprobar.disabled = false;// desabilito y habilito
+    document.getElementById("mge-ganar").innerHTML = "";
 });
 
 //boton agregar palabras
@@ -23,35 +22,31 @@ btnAgregarPalabras.addEventListener("click", ()=>{
 
     if(nuevaPalabra.value == ""){
         alert("No ingreso palabra");
+    
     }else{
         agregarPalabra(palabras);
-        document.getElementById("input-nueva-palabra").value = "";//limpia
+        
     }
+    document.getElementById("input-nueva-palabra").value = "";//limpia
 });
 
-//boton comprobar con validacion, no permite enviar el input vacio
-let btnComprobar = document.getElementById("boton");
-btnComprobar.addEventListener("click", ()=>{
-    //verifico que no ingrese vacio el input
-    if(input.value == ""){
-        alert("No ingreso ninguna letra");
-    }else{
-        document.getElementById("letra").focus();
-        comprobarLetra();
+function capturaTeclado(e){
+
+    let tecla = e.keyCode || e.which;
+    if(tecla > 64 && tecla < 91){
+        letra = e.key.toUpperCase();
+        comprobarLetra(letra);
     }
-    
-});
+}
 
 //--------------------- manejo del juego ---------------------------------
 
 //------------------- Funcion de comprobar letras --------------------------
-let input = document.getElementById("letra"); //capura el input
 let errores = document.getElementById("letras-erradas");
-let nuevaPalabra = document.getElementById("input-nueva-palabra").value;
+let nuevaPalabra = document.getElementById("input-nueva-palabra");
 
-function comprobarLetra(){
+function comprobarLetra(letraIngresada){
     
-    let letraIngresada = input.value.toUpperCase();
     console.log(letraIngresada);
     palabraOculta = palabraOculta.toUpperCase();
     
@@ -91,19 +86,19 @@ function comprobarLetra(){
     document.getElementById("frase-Adivinada").innerHTML = palabraAdivinada;
 //------------------------ valido si gano o perdio ---------------------------------------------------------
     if(intentos==0){
-       alert("perdiste");   
+       
+       swal ({title: "Lo siento PERDISTE",
+              text: "La palabra era: " + palabraOculta,
+              });
+        window.removeEventListener("keydown", capturaTeclado);
     }
     
     //search retorna un -1, valido si es la letra encontrada o guion
     if(palabraAdivinada.search("_") == -1){
         
-        alert("Ganaste :D");
+        document.getElementById("mge-ganar").innerHTML = "Felicitaciones 🥳 has GANADO!!!";
+        window.removeEventListener("keydown", capturaTeclado);
     }
-  
-    //limpia el input
-    document.getElementById("letra").value = "";
-    //enfoca el cursor en el input
-    document.getElementById("letra").focus();
 }
 
 
