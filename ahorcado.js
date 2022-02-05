@@ -21,7 +21,12 @@ document.getElementById("iniciar-juego").addEventListener("click",() =>{
 let btnAgregarPalabras = document.getElementById("nueva-palabra");
 btnAgregarPalabras.addEventListener("click", ()=>{
 
-    agregarPalabra(palabras);
+    if(nuevaPalabra.value == ""){
+        alert("No ingreso palabra");
+    }else{
+        agregarPalabra(palabras);
+        document.getElementById("input-nueva-palabra").value = "";//limpia
+    }
 });
 
 //boton comprobar con validacion, no permite enviar el input vacio
@@ -29,11 +34,12 @@ let btnComprobar = document.getElementById("boton");
 btnComprobar.addEventListener("click", ()=>{
     //verifico que no ingrese vacio el input
     if(input.value == ""){
-        alert("vacio");
+        alert("No ingreso ninguna letra");
     }else{
+        document.getElementById("letra").focus();
         comprobarLetra();
     }
-    document.getElementById("letra").focus();
+    
 });
 
 //--------------------- manejo del juego ---------------------------------
@@ -41,6 +47,7 @@ btnComprobar.addEventListener("click", ()=>{
 //------------------- Funcion de comprobar letras --------------------------
 let input = document.getElementById("letra"); //capura el input
 let errores = document.getElementById("letras-erradas");
+let nuevaPalabra = document.getElementById("input-nueva-palabra").value;
 
 function comprobarLetra(){
     
@@ -48,7 +55,7 @@ function comprobarLetra(){
     console.log(letraIngresada);
     palabraOculta = palabraOculta.toUpperCase();
     
-    let adivinada = ""; // cadena vacia, donde se guardara la palabra oculta
+    let letraAdivinada = ""; // cadena vacia, donde se guardara la palabra oculta
     let fallidos = true;
     //recorro la palabra
     for(let i=0; i<palabraOculta.length; i++){
@@ -56,12 +63,12 @@ function comprobarLetra(){
         // comparo la letra ingresada = palabra oculta
         if(letraIngresada == palabraOculta[i]){
             //si coincide que muestre la letra con espacios
-            adivinada = adivinada + letraIngresada + " ";
+            letraAdivinada = letraAdivinada + letraIngresada + " ";
             fallidos = false;
         }
         else{
              //sino que muestre el guion bajo
-             adivinada = adivinada + palabraAdivinada[i*2] + " ";
+             letraAdivinada = letraAdivinada + palabraAdivinada[i*2] + " ";
         }
               
     }
@@ -77,15 +84,14 @@ function comprobarLetra(){
         }
     }
     console.log(palabraAdivinada);
-    console.log("palabra adivinada  " + adivinada);
+    console.log("palabra adivinada  " + letraAdivinada);
     
-    palabraAdivinada = adivinada;
+    palabraAdivinada = letraAdivinada;
      //muestra la palabra encontrada
     document.getElementById("frase-Adivinada").innerHTML = palabraAdivinada;
 //------------------------ valido si gano o perdio ---------------------------------------------------------
     if(intentos==0){
-        alert("perdiste :( ");//perdio
-        
+       alert("perdiste");   
     }
     
     //search retorna un -1, valido si es la letra encontrada o guion
