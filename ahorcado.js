@@ -6,13 +6,14 @@ document.getElementById("iniciar-juego").addEventListener("click",() =>{
     limpiarCambas();
     guionesDePalabra();
 //------reinicio todas las variables
-    errores.innerHTML = "";
+    errores.innerHTML = "";//resetea
     letrasErradas = [];
     letrasRepetidas = [];
     intentos = 9;
-    document.getElementById("intentos").innerHTML = 
-    "Quedan: " + intentos + " intentos";//actualizo
-    errores.hidden = false;// en html es true, cambio para que se vea
+    document.getElementById("intentos").innerHTML = "LE QUEDAN: " + intentos + " INTENTOS";//actualizo
+    // en html es true, cambio para que no se vea letras erradas
+    titulo2.hidden =false;
+    errores.hidden = false;
     document.getElementById("mge-ganar").innerHTML = "";
 });
 
@@ -42,7 +43,8 @@ function capturaTeclado(e){
 //--------------------- manejo del juego ---------------------------------
 
 //------------------- Funcion de comprobar letras --------------------------
-let errores = document.getElementById("letras-erradas");
+let errores = document.getElementById("letras-erradas")
+let titulo2 = document.getElementById("titulo2");
 let nuevaPalabra = document.getElementById("input-nueva-palabra");
 
 function comprobarLetra(letraIngresada){
@@ -74,8 +76,7 @@ function comprobarLetra(letraIngresada){
         if(resultadoErrores){
             intentos--;//resto
             dibujarAhorcado(intentos);
-            document.getElementById("intentos").innerHTML = 
-            "Quedan: " + intentos + " intentos";//actualizo
+            document.getElementById("intentos").innerHTML = "LE QUEDAN " + intentos + " INTENTOS";//actualizo
         }
     }
     console.log(palabraAdivinada);

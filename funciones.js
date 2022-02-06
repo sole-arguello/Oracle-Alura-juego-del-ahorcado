@@ -21,6 +21,7 @@ function agregarPalabra(palabras){
 //----------------------------- INICIO ---------------------------------------------------
 //activada por el BOTON INICIAR JUEGO, y coloca los guiones
 function guionesDePalabra(){
+    
     // elije la palabra
     palabraOculta = palabras[Math.floor(Math.random() * palabras.length)].toUpperCase();
     console.log(palabraOculta);
@@ -30,6 +31,7 @@ function guionesDePalabra(){
     }
     // muestra los guiones
     document.getElementById("frase-Adivinada").innerHTML = palabraAdivinada;
+    document.getElementById("titulo2").innerHTML = "A Jugar!!! 🤗";
     
     dibujarBase();    
 }
@@ -68,7 +70,7 @@ function mostrarLetrasErradas(letraIngresada){
     if(!letrasErradas.includes(letra)){
         letrasErradas.push(letra);
         //muestro
-        errores.innerHTML = "LETRAS ERRADAS: " + letrasErradas;
+        errores.innerHTML = letrasErradas;
         agrego = true;
     }else{
         //guardo las repetidas pero no las muestro
@@ -79,8 +81,9 @@ function mostrarLetrasErradas(letraIngresada){
 }
 //--------------- Dibujo del Ahorcado ---------------------------------------------------
 function dibujarAhorcado(intentos){
-    
+        
     let lienzo = document.querySelector("#dibujo-ahorcado");
+    
     
     if(lienzo.getContext){
     

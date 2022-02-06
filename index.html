@@ -8,52 +8,62 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-<!----------- boton iniciar juego -->
-    <div style="text-align:center; margin: 50px 0px;">
-      <h1 class="titulo">Juego del Ahorcado</h1>
-      <button class="btn" id="iniciar-juego" value="iniciarJuego">INICIAR JUEGO</button>
-    </div>
-      
+    <main id="contenedor">
+      <section class="comienzo" style="float: left;">
+    <!-- boton de agregar palabra -->
+        <div class="agregar-palabra" style="text-align:center">
+          <h1 class="titulo" style= "font-size: 40px">Juego del Ahorcado</h1>
+          <p id="texto" style="font-size: 20px;">Antes de comenzar si desea agregue una palabra,<br>de lo contrario presione ir al juego</p>
+          <input class="inputText" type="text" id="input-nueva-palabra" 
+          placeholder="Escriba aqui una nueva palabra"><br><br>
+          <button class="btn" id="nueva-palabra">AGREGAR PALABRA</button> 
+        </div>
 
-<!------------ boton de agregar palabra -->
-    <div style="text-align:center">
-      <input class="inputText" type="text" id="input-nueva-palabra" placeholder="Escriba aqui una nueva palabra">
-      <button class="btn" id="nueva-palabra">AGREGAR PALABRA</button> 
-    </div>
+    <!----------- boton iniciar juego -->
+        <div style="text-align:center; margin: 50px 0px;">
+          <button class="btn" id="iniciar-juego" value="iniciarJuego">INICIAR JUEGO</button>
+        </div>
 
-    
-    
-    
-<!------------ dibujo del ahorcado height="360px" width="294px"------------>
-    <section id="canvas-juego" >
-            
+      </section class="areaDibujo" style="float: left;">
+      <!------------ dibujo del ahorcado height="360px" width="294px"------------>
+      <section id="canvas-juego" >
+        <!--muestra "a jugar!!"-->
+        <h2 id="titulo2" hidden style="text-align:center;"></h2>    
       <!-------------- CANVAS -------------------------->
       <div class="dibujo" style = "float: left;">
-        <!--------------- INTENTOS Y DIBUJO  ------->
-        <p id="intentos" style="text-align:center; margin: 50px 0px;" ></p>
-        <canvas id="dibujo-ahorcado" height="360" width="220"></canvas>
+        <!--------------- DIBUJO  ------->
+        <canvas id="dibujo-ahorcado" height="350" width="250"></canvas>
       </div>
-     
-
 <!-------------- PALABRA PARA ADIVINAR ---------------->
       <div class="guiones-frase" style = "float: left;">
-        <div id="mge-ganar"></div> 
+         
         <div style="text-align:center; margin: 50px 50px;">
-          <!-- MUESTRA LETRAS ERRADAS--> 
-          <p id="letras-erradas" hidden style="text-align:center; margin: 50px 0px;" ></p>
+          <!-- MUESTRA LETRAS ERRADAS e INTENTOS--> 
+          <div id="intentos" style="text-align:center; margin: 50px 0px;" ></div>
+          <div id="letras-erradas" hidden style="text-align:center; margin: 50px 0px;" ></div>
           
           <!-- guiones y frase adivinada -->
-          <p id="frase-Adivinada" style="text-align:center; margin: 50px 50px;"><br></p>
+          <div id="frase-Adivinada" style="text-align:center; margin: 50px 50px;"><br></div>
         </div>
-        
       </div>
-
     </section>
-
-    <!-- archivos de js -->
+    <div id="mge-ganar"></div>
+    
+    </main>
+    <div id="footer">
+          <p>
+              Todos los derechos reservados - copyrigt - 
+              <br>
+              <a href="mailto:soledad.ar1@gmail.com" class="link-correo">Mail</a>
+              <a href="" class="git">Git</a>
+              <a href="" class="linkedin">Linkedin</a>
+          </p>
+    </div>
+<!-- archivos de js -->
     <script type="text/javascript" src="canvas.js"></script>
     <script type="text/javascript" src="ahorcado.js"></script>
     <script type="text/javascript" src="funciones.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        
   </body>
 </html>
