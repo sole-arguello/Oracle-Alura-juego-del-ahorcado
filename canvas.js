@@ -71,5 +71,5 @@ function dibujarPiernaIzquierda(){
 }
 //-----------------Limpia el dibujo ---------------------
 function limpiarCambas(){
-    pincel.clearRect(0,0, 220,360);
+    pincel.clearRect(0,0, 400,800);
 }

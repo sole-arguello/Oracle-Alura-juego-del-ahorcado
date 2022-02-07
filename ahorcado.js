@@ -1,10 +1,19 @@
+//boton de reinicio
+document.getElementById("reiniciar").style.display = "none";
+
+
 //boton iniciar juego
+document.getElementById("letras-erradas").style.display = "none";
 document.getElementById("iniciar-juego").addEventListener("click",() =>{
-    
+    document.getElementById("reiniciar").style.display = "block";
+    document.getElementById("letras-erradas").style.display = "block";
+    document.getElementById("canvas-juego").style.display = "flex";//hago visible el juego
     window.addEventListener("keydown", capturaTeclado);
     palabraAdivinada ="";
     limpiarCambas();
+    dibujarBase();
     guionesDePalabra();
+    
 //------reinicio todas las variables
     errores.innerHTML = "";//resetea
     letrasErradas = [];
@@ -12,12 +21,12 @@ document.getElementById("iniciar-juego").addEventListener("click",() =>{
     intentos = 9;
     document.getElementById("intentos").innerHTML = "LE QUEDAN: " + intentos + " INTENTOS";//actualizo
     // en html es true, cambio para que no se vea letras erradas
-    titulo2.hidden =false;
-    errores.hidden = false;
-    tituloEquivocadas.hidden = false;
+    //titulo2.hidden =false;
+    //errores.hidden = false;
+    //tituloEquivocadas.hidden = false;
     document.getElementById("mge-ganar").innerHTML = "";
 });
-
+//-------------------------------------------------------------------------------------------------
 //boton agregar palabras
 let btnAgregarPalabras = document.getElementById("nueva-palabra");
 btnAgregarPalabras.addEventListener("click", ()=>{
@@ -46,7 +55,6 @@ function capturaTeclado(e){
 //------------------- Funcion de comprobar letras --------------------------
 let tituloEquivocadas = document.getElementById("tituloEquivocadas");
 let errores = document.getElementById("letras-erradas")
-let titulo2 = document.getElementById("titulo2");
 let nuevaPalabra = document.getElementById("input-nueva-palabra");
 
 function comprobarLetra(letraIngresada){
@@ -94,6 +102,7 @@ function comprobarLetra(letraIngresada){
        swal ({title: "Lo siento PERDISTE",
               text: "La palabra era: " + palabraOculta,
               });
+        //document.getElementById("reiniciar").style.display = "block";
         window.removeEventListener("keydown", capturaTeclado);
     }
     
@@ -101,7 +110,8 @@ function comprobarLetra(letraIngresada){
     if(palabraAdivinada.search("_") == -1){
        
         
-        //document.getElementById("ganador").Style.display = "flex";
+        
+        //document.getElementById("reiniciar").style.display = "block";
         document.getElementById("mge-ganar").innerHTML = "Felicitaciones 🥳 has GANADO!!!";
         window.removeEventListener("keydown", capturaTeclado);
     }

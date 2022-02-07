@@ -1,5 +1,5 @@
 // creo el arreglo con las palabras
-let palabras = Array("ahorcado", "casa", "palabra", "juego", "murcielago", "mayúsculas",
+let palabras = Array("ahorcado", "casa", "palabra", "juego", "murcielago", "mayusculas",
                         "paleta", "cuerpo", "pala", "nombre", "cancion", "cielo");
 
 //cadenas vacias
@@ -33,7 +33,7 @@ function guionesDePalabra(){
     document.getElementById("frase-Adivinada").innerHTML = palabraAdivinada;
     document.getElementById("titulo2").innerHTML = "A Jugar!!! 🤗";
     
-    dibujarBase();    
+    //dibujarBase();    
 }
 
 //------------------------------ Validacion del Solo Letras ----------------------------
