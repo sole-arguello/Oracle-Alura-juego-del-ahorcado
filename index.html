@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="contenedor">
-      <section class="comienzo" style="float: left;">
+      <section class="comienzo">
     <!-- boton de agregar palabra -->
         <div class="agregar-palabra" style="text-align:center">
           <h1 class="titulo" style= "font-size: 40px">Juego del Ahorcado</h1>
@@ -26,30 +26,27 @@
         </div>
 
       </section>
-      <!------------ dibujo del ahorcado height="360px" width="294px"------------>
-      <section id="canvas-juego" style="text-align: center;" >
+<!---------------------- dibujo del ahorcado height="360px" width="294px"------------>
+      <section id="canvas-juego" >
            
         <!-------------- CANVAS -------------------------->
-        <div class="dibujo" style = "float: left;">
-          <!--muestra "a jugar!!"-->
-          <h2 id="titulo2" hidden style="text-align:center;"></h2>
-          
+                 
           <!--------------- DIBUJO  ------->
-          <canvas id="dibujo-ahorcado" height="350" width="250"></canvas>
-        </div>
+          <canvas id="dibujo-ahorcado" height="400" width="800"></canvas>
+      
   <!-------------- PALABRA PARA ADIVINAR ---------------->
-        <div class="guiones-frase" style = "float: left;">
+        <div class="guiones-frase">
           
-          <div style="text-align:center; margin: 50px 50px;">
+          
             <!-- guiones y frase adivinada -->
-            <div id="frase-Adivinada" style="text-align:center; margin: 50px 50px;"><br></div>
+            <div id="frase-Adivinada"><br></div>
             <!-- titulo equivocada-->
-            <div id="tituloEquivocadas" style="text-align:center; margin: 50px 50px;"></div>
-            <div id="letras-erradas" hidden style="text-align:center; margin: 50px 0px;" ></div>
+            <div id="tituloEquivocadas"></div>
+            <div id="letras-erradas"></div><!--hidden-->
             <!-- MUESTRA LETRAS ERRADAS e INTENTOS--> 
-            <div id="intentos" style="text-align:center; margin: 50px 0px;" ></div>
-             
-          </div>
+            <div id="intentos"></div>
+
+            <button class="btn" id="reiniciar" onclick="location.reload()">Reiniciar Juego</button>
 
         </div>
       </section>
