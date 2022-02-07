@@ -70,6 +70,7 @@ function mostrarLetrasErradas(letraIngresada){
     if(!letrasErradas.includes(letra)){
         letrasErradas.push(letra);
         //muestro
+        //document.getElementById("tituloEquivocadas").innerHTML = "PALABRAS EQUIVOCADAS"
         errores.innerHTML = letrasErradas;
         agrego = true;
     }else{

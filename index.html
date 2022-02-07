@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <main id="contenedor">
+    <div class="contenedor">
       <section class="comienzo" style="float: left;">
     <!-- boton de agregar palabra -->
         <div class="agregar-palabra" style="text-align:center">
           <h1 class="titulo" style= "font-size: 40px">Juego del Ahorcado</h1>
-          <p id="texto" style="font-size: 20px;">Antes de comenzar si desea agregue una palabra,<br>de lo contrario presione ir al juego</p>
+          <p id="texto" style="font-size: 20px;">Antes de comenzar si desea agregue una palabra,
+            <br>de lo contrario presione ir al juego</p>
           <input class="inputText" type="text" id="input-nueva-palabra" 
           placeholder="Escriba aqui una nueva palabra"><br><br>
           <button class="btn" id="nueva-palabra">AGREGAR PALABRA</button> 
@@ -24,32 +25,37 @@
           <button class="btn" id="iniciar-juego" value="iniciarJuego">INICIAR JUEGO</button>
         </div>
 
-      </section class="areaDibujo" style="float: left;">
+      </section>
       <!------------ dibujo del ahorcado height="360px" width="294px"------------>
-      <section id="canvas-juego" >
-        <!--muestra "a jugar!!"-->
-        <h2 id="titulo2" hidden style="text-align:center;"></h2>    
-      <!-------------- CANVAS -------------------------->
-      <div class="dibujo" style = "float: left;">
-        <!--------------- DIBUJO  ------->
-        <canvas id="dibujo-ahorcado" height="350" width="250"></canvas>
-      </div>
-<!-------------- PALABRA PARA ADIVINAR ---------------->
-      <div class="guiones-frase" style = "float: left;">
-         
-        <div style="text-align:center; margin: 50px 50px;">
-          <!-- MUESTRA LETRAS ERRADAS e INTENTOS--> 
-          <div id="intentos" style="text-align:center; margin: 50px 0px;" ></div>
-          <div id="letras-erradas" hidden style="text-align:center; margin: 50px 0px;" ></div>
+      <section id="canvas-juego" style="text-align: center;" >
+           
+        <!-------------- CANVAS -------------------------->
+        <div class="dibujo" style = "float: left;">
+          <!--muestra "a jugar!!"-->
+          <h2 id="titulo2" hidden style="text-align:center;"></h2>
           
-          <!-- guiones y frase adivinada -->
-          <div id="frase-Adivinada" style="text-align:center; margin: 50px 50px;"><br></div>
+          <!--------------- DIBUJO  ------->
+          <canvas id="dibujo-ahorcado" height="350" width="250"></canvas>
         </div>
-      </div>
-    </section>
-    <div id="mge-ganar"></div>
+  <!-------------- PALABRA PARA ADIVINAR ---------------->
+        <div class="guiones-frase" style = "float: left;">
+          
+          <div style="text-align:center; margin: 50px 50px;">
+            <!-- guiones y frase adivinada -->
+            <div id="frase-Adivinada" style="text-align:center; margin: 50px 50px;"><br></div>
+            <!-- titulo equivocada-->
+            <div id="tituloEquivocadas" style="text-align:center; margin: 50px 50px;"></div>
+            <div id="letras-erradas" hidden style="text-align:center; margin: 50px 0px;" ></div>
+            <!-- MUESTRA LETRAS ERRADAS e INTENTOS--> 
+            <div id="intentos" style="text-align:center; margin: 50px 0px;" ></div>
+             
+          </div>
+
+        </div>
+      </section>
+      <div id="mge-ganar"></div>
     
-    </main>
+  </div>
     <div id="footer">
           <p>
               Todos los derechos reservados - copyrigt - 

@@ -1,77 +1,101 @@
 body{
 
   background-image: url(/juego-ahorcado2.jpeg);
-  background-size: cover;
   width: 100%;
   height: 100%;
-}
-
-.comienzo{
- /* background-color: brown;*/
-  margin-left: 180px;
-  margin-top: 30px;
-}
-.areaDibujo{
-  margin-left: 100px;
   
 }
+/*
+.ganador{
+  display: none;/*digo que no se vea
+  height: 100vh;
+  align-items: center;
+  font-size: 5em;
+  position: fixed;
+  top: 0;
+  left: 0;
+}*/
+/*sector de inicio juego*/
+.comienzo{
+  background-color:rgba(58, 58, 58, 0.384);
+  margin-left: 190px;
+  margin-top: 20px;
+  border-radius: 30px;
+}
+
+/*titulo jugar // area juego */
 #canvas-juego{
-  /*background-color: blueviolet;*/
-  margin-top: 150px;
+  margin-top: 130px;/*mueve todo el bloque incluso iniciar juego*/
   margin-left: 650px;
 }
 
-.tituloErradas {
-  font-weight: bold;
-  font-size: 15px;
-  color: red;
-}
+
+/*a jugar!! */
 #titulo2{
-  font-size: 40px;
+  display: inline-flexbox;
+  font-size: 35px;
   font-style: italic;
   font-weight: 50px;
-  padding: 20px;
+  padding: 15px;
   margin-top: auto;
 
 }
+/* palabra y guiones*/
 #frase-Adivinada{
-  color: blue;
-  font-size: 30px;
+  /*color: blue;*/
+  font-size: 20px;
   font-weight: bold;
 
 }
+/*titulo intentos fijo*/
 #intentos{
-  color: blueviolet;
+  /*color: blueviolet;*/
+  font-size: 15px;
+  font-weight: bold;
 }
+/* titulo de las palabrs erradas aparecen de desaparecen*/
+#tituloEquivocadas {
+  font-weight: bold;
+  font-size: 15px;
+  /*color: red;*/
+}
+/*letras erradas que van apareciendo*/
 #letras-erradas{
-  color: green;
+  /*color: green;*/
+  font-size: 20px;
+  font-weight: bold;
 }
 
-/*.dibujo {
-  background-color: aqua;
-}*/
-
-/*.agregar-palabra{
-  padding-top: 200px;
-
-}*/
+.guiones-frase{
+  margin-top: 100px;
+  margin-right: 30px;
+  margin-left: 20px;
+}
+/*juego del ahorcado*/
 .titulo {
-
   padding: 10px;
   width: 30vw;
   margin: auto;
-
+}
+/*parrafo de ingresar palabras*/
+#texto{
+  /*font-size: 5px;*/
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .btn {
-  border: 0;
-  color: white;
+  background-color: rosybrown; 
+    color: black; 
+    border: 2px solid #555555;
   font-weight: bold;
-  background-color: blue;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 0.5em;
+}
+.btn:hover{
+  background-color: #555555;
+    color: white;
 }
 
 .text-input {
@@ -86,45 +110,19 @@ body{
 
 }
 #mge-ganar{
+  background-color: aliceblue;
+
   color: green;
-  margin-top: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 0px;
   margin-left: 80px;
+  top: 0em;
   
 }
-.guiones-frase{
-  margin-top: 100px;
-  /*margin-left: 50px;*/
-}
 
 
-/* 
-footer {
-  position: fixed;
-  background-color: #0A3871;
-  bottom: 0;
-  width: 100%;
-  padding: 5px 0px;
-  text-align: center;
-  font-size: x-large;
-  color: white;
-  margin-top: 10px;
-  font-family: 'Inter', sans-serif;
-  justify-content: center;
-}
-
-.footer {
-  position: relative !important;
-}
-
-.redes {
-  width: 25px;
-}
-
-.link {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-}*/
 #footer{
   position: absolute !important;
   padding: 2px;

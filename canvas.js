@@ -1,7 +1,7 @@
 let lienzo = document.querySelector("#dibujo-ahorcado");
 let pincel = lienzo.getContext("2d");
-//pincel.fillStyle = "green";
-//pincel.fillRect(0,0,400, 300);
+//pincel.fillStyle = "rgba(58, 58, 58, 0.384)";
+//pincel.fillRect(0,0,360, 220);
 
 function dibujarBase(){
 

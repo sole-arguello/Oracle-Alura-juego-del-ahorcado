@@ -14,6 +14,7 @@ document.getElementById("iniciar-juego").addEventListener("click",() =>{
     // en html es true, cambio para que no se vea letras erradas
     titulo2.hidden =false;
     errores.hidden = false;
+    tituloEquivocadas.hidden = false;
     document.getElementById("mge-ganar").innerHTML = "";
 });
 
@@ -43,6 +44,7 @@ function capturaTeclado(e){
 //--------------------- manejo del juego ---------------------------------
 
 //------------------- Funcion de comprobar letras --------------------------
+let tituloEquivocadas = document.getElementById("tituloEquivocadas");
 let errores = document.getElementById("letras-erradas")
 let titulo2 = document.getElementById("titulo2");
 let nuevaPalabra = document.getElementById("input-nueva-palabra");
@@ -76,7 +78,8 @@ function comprobarLetra(letraIngresada){
         if(resultadoErrores){
             intentos--;//resto
             dibujarAhorcado(intentos);
-            document.getElementById("intentos").innerHTML = "LE QUEDAN " + intentos + " INTENTOS";//actualizo
+           document.getElementById("intentos").innerHTML = "LE QUEDAN " + intentos + " INTENTOS";//actualizo
+           document.getElementById("tituloEquivocadas").innerHTML = "PALABRAS EQUIVOCADAS";
         }
     }
     console.log(palabraAdivinada);
@@ -96,7 +99,9 @@ function comprobarLetra(letraIngresada){
     
     //search retorna un -1, valido si es la letra encontrada o guion
     if(palabraAdivinada.search("_") == -1){
+       
         
+        //document.getElementById("ganador").Style.display = "flex";
         document.getElementById("mge-ganar").innerHTML = "Felicitaciones 🥳 has GANADO!!!";
         window.removeEventListener("keydown", capturaTeclado);
     }
