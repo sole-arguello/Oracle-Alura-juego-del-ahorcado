@@ -70,6 +70,6 @@ function dibujarPiernaIzquierda(){
 
 }
 //-----------------Limpia el dibujo ---------------------
-function limpiarCambas(){
+function limpiarCamvas(){
     pincel.clearRect(0,0, 400,800);
 }

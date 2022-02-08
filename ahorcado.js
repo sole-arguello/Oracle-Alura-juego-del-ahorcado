@@ -1,16 +1,19 @@
 //boton de reinicio
 document.getElementById("reiniciar").style.display = "none";
 
+//-------------------------------------------------------------------------------------------------
 
 //boton iniciar juego
 document.getElementById("letras-erradas").style.display = "none";
 document.getElementById("iniciar-juego").addEventListener("click",() =>{
+    
     document.getElementById("reiniciar").style.display = "block";
+    
     document.getElementById("letras-erradas").style.display = "block";
     document.getElementById("canvas-juego").style.display = "flex";//hago visible el juego
-    window.addEventListener("keydown", capturaTeclado);
+    window.addEventListener("keydown", capturaTeclado);//bloquea el teclado
     palabraAdivinada ="";
-    limpiarCambas();
+    limpiarCamvas();//limpia al reiniciar
     dibujarBase();
     guionesDePalabra();
     
@@ -20,26 +23,30 @@ document.getElementById("iniciar-juego").addEventListener("click",() =>{
     letrasRepetidas = [];
     intentos = 9;
     document.getElementById("intentos").innerHTML = "LE QUEDAN: " + intentos + " INTENTOS";//actualizo
-    // en html es true, cambio para que no se vea letras erradas
-    //titulo2.hidden =false;
-    //errores.hidden = false;
-    //tituloEquivocadas.hidden = false;
-    document.getElementById("mge-ganar").innerHTML = "";
+    
 });
+
 //-------------------------------------------------------------------------------------------------
+
 //boton agregar palabras
 let btnAgregarPalabras = document.getElementById("nueva-palabra");
 btnAgregarPalabras.addEventListener("click", ()=>{
 
     if(nuevaPalabra.value == ""){
-        alert("No ingreso palabra");
+       // alert("No ingreso palabra");
+          
+       swal ({title: "No ingreso ninguna palabra"});
     
     }else{
+        
+        document.getElementById("input-nueva-palabra").focus();
         agregarPalabra(palabras);
         
     }
     document.getElementById("input-nueva-palabra").value = "";//limpia
 });
+
+//-------------------------TECLADO-------------------------------------
 
 function capturaTeclado(e){
 
@@ -59,7 +66,6 @@ let nuevaPalabra = document.getElementById("input-nueva-palabra");
 
 function comprobarLetra(letraIngresada){
     
-    console.log(letraIngresada);
     palabraOculta = palabraOculta.toUpperCase();
     
     let letraAdivinada = ""; // cadena vacia, donde se guardara la palabra oculta
@@ -87,7 +93,7 @@ function comprobarLetra(letraIngresada){
             intentos--;//resto
             dibujarAhorcado(intentos);
            document.getElementById("intentos").innerHTML = "LE QUEDAN " + intentos + " INTENTOS";//actualizo
-           document.getElementById("tituloEquivocadas").innerHTML = "PALABRAS EQUIVOCADAS";
+           document.getElementById("tituloEquivocadas").innerHTML = "PALABRAS EQUIVOCADAS";//muetra un titulo
         }
     }
     console.log(palabraAdivinada);
@@ -96,25 +102,19 @@ function comprobarLetra(letraIngresada){
     palabraAdivinada = letraAdivinada;
      //muestra la palabra encontrada
     document.getElementById("frase-Adivinada").innerHTML = palabraAdivinada;
-//------------------------ valido si gano o perdio ---------------------------------------------------------
+//------------------------ valido si gano o perdio IMPRIMO MENSAJES ---------------------------------------------------------
     if(intentos==0){
-       
-       swal ({title: "Lo siento PERDISTE",
-              text: "La palabra era: " + palabraOculta,
-              });
-        //document.getElementById("reiniciar").style.display = "block";
+     
+        document.getElementById("mge-perdio").innerHTML = "PERDISTE!! 🥺, Fin del Juego!";
         window.removeEventListener("keydown", capturaTeclado);
     }
     
     //search retorna un -1, valido si es la letra encontrada o guion
     if(palabraAdivinada.search("_") == -1){
        
-        
-        
-        //document.getElementById("reiniciar").style.display = "block";
-        document.getElementById("mge-ganar").innerHTML = "Felicitaciones 🥳 has GANADO!!!";
+        document.getElementById("mge-ganar").innerHTML = "GANASTE!! 🥳 Felicitaciones!";
         window.removeEventListener("keydown", capturaTeclado);
     }
-}
+}/// FIN DE LA FUNCION COMPROBAR
 
 

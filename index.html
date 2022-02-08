@@ -6,66 +6,74 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Ahorcado</title>
     <link rel="stylesheet" href="style.css">
+    <!--------- LIBRERIA ICONOS REDES SOCIALES --------------------->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+   crossorigin="anonymous">
   </head>
   <body>
     <div class="contenedor">
       <section class="comienzo">
-    <!-- boton de agregar palabra -->
+<!-------------------- boton de agregar palabra -------------------------------------------->
         <div class="agregar-palabra" style="text-align:center">
           <h1 class="titulo" style= "font-size: 40px">Juego del Ahorcado</h1>
           <p id="texto" style="font-size: 20px;">Antes de comenzar si desea agregue una palabra,
             <br>de lo contrario presione ir al juego</p>
-          <input class="inputText" type="text" id="input-nueva-palabra" 
+          <input class="inputText" type="text" onkeypress="return soloLetras(event);" id="input-nueva-palabra" 
           placeholder="Escriba aqui una nueva palabra"><br><br>
-          <button class="btn" id="nueva-palabra">AGREGAR PALABRA</button> 
+          <button class="btn"  id="nueva-palabra">AGREGAR PALABRA</button> 
         </div>
 
-    <!----------- boton iniciar juego -->
+<!---------------------- boton iniciar juego --------------------------------------------->
         <div style="text-align:center; margin: 50px 0px;">
-          <button class="btn" id="iniciar-juego" value="iniciarJuego">INICIAR JUEGO</button>
+          <p id="texto" style="font-size: 20px;">Atencion!! 👀 El juego solo funciona con LETRAS</p>
+          <button class="btn"  id="iniciar-juego" value="iniciarJuego">IR AL JUEGO</button>
         </div>
 
       </section>
 <!---------------------- dibujo del ahorcado height="360px" width="294px"------------>
       <section id="canvas-juego" >
-           
-        <!-------------- CANVAS -------------------------->
-                 
-          <!--------------- DIBUJO  ------->
+           <!-------------- CANVAS -------------------------->
+                 <!--------------- DIBUJO  ------->
           <canvas id="dibujo-ahorcado" height="400" width="800"></canvas>
-      
-  <!-------------- PALABRA PARA ADIVINAR ---------------->
-        <div class="guiones-frase">
+<!-------------- PALABRA PARA ADIVINAR ---------------->
+        <div class="guiones-frase" style="text-align:center;">
           
-          
+            <p id="tituloJugar">A Jugar!! 🤗</p>
             <!-- guiones y frase adivinada -->
-            <div id="frase-Adivinada"><br></div>
+            <div onkeypress="return soloLetras(event);" id="frase-Adivinada" ><br></div>
             <!-- titulo equivocada-->
             <div id="tituloEquivocadas"></div>
             <div id="letras-erradas"></div><!--hidden-->
             <!-- MUESTRA LETRAS ERRADAS e INTENTOS--> 
             <div id="intentos"></div>
-
-            <button class="btn" id="reiniciar" onclick="location.reload()">Reiniciar Juego</button>
-
+            <!--<button class="btn" id="iniciar-juego" value="iniciarJuego">REINICIAR</button>-->
+            <button class="btn2" id="reiniciar" style="float: left" onclick="location.reload()">REINICIAR / ABANDONAR</button>
+            
         </div>
       </section>
+<!------------------ MENSAJE GANADOR --------------------------->
       <div id="mge-ganar"></div>
+      <div id="mge-perdio"></div>
     
   </div>
+<!----------------- PIE DE PAGINA ----------------------------------------->
     <div id="footer">
           <p>
-              Todos los derechos reservados - copyrigt - 
+              Todos los derechos reservados - Soledada Arguello - #Oracle One #AluraLatam 2022
               <br>
-              <a href="mailto:soledad.ar1@gmail.com" class="link-correo">Mail</a>
-              <a href="" class="git">Git</a>
-              <a href="" class="linkedin">Linkedin</a>
+              <a href="mailto:soledad.ar1@gmail.com" class="correo">Mail</a>
+              <a href="https://www.instagram.com/solearguello_"class="instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://github.com/sole-arguello" class="git"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/soledad-arguello-02b905220/" class="linkedin"><i class="fab fa-linkedin"></i></a>
+              
           </p>
     </div>
-<!-- archivos de js -->
+<!--------------------------- ARCHIVOS DE JAVASCRIPT ------------------- -->
     <script type="text/javascript" src="canvas.js"></script>
     <script type="text/javascript" src="ahorcado.js"></script>
     <script type="text/javascript" src="funciones.js"></script>
+    <!------- LIBRERIA DE ALERTAS ----------->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         
   </body>

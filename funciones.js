@@ -1,6 +1,6 @@
 // creo el arreglo con las palabras
-let palabras = Array("ahorcado", "casa", "palabra", "juego", "murcielago", "mayusculas",
-                        "paleta", "cuerpo", "pala", "nombre", "cancion", "cielo");
+let palabras = Array("AHORCADO", "CASA", "PALABRA", "JUEGO", "MURCIELAGO", "MAYUSCULA",
+                        "PALETA", "CUERPO", "PALA", "NOMBRE", "CANCION", "CIELO");
 
 //cadenas vacias
 let letra;
@@ -10,13 +10,13 @@ let intentos = 9;// remplaza al dibujo
 let letrasRepetidas = [];
 let letrasErradas = [];
 
-//------------------- Agregar palabras ------------------------
+//------------------- AGRGAR PALABRAS ------------------------
 function agregarPalabra(palabras){
     
     let nuevaPalabra = document.getElementById("input-nueva-palabra").value;
     
     palabras.push(nuevaPalabra);
-    console.log(palabras);
+    //console.log(palabras);
 }
 //----------------------------- INICIO ---------------------------------------------------
 //activada por el BOTON INICIAR JUEGO, y coloca los guiones
@@ -24,25 +24,23 @@ function guionesDePalabra(){
     
     // elije la palabra
     palabraOculta = palabras[Math.floor(Math.random() * palabras.length)].toUpperCase();
-    console.log(palabraOculta);
+    //console.log(palabraOculta);
     for(let i=0; i < palabraOculta.length; i++){
 // Los guiones que van a ser generados segun la palabra seleccionada aleatoria
         palabraAdivinada = palabraAdivinada + "_ ";
     }
     // muestra los guiones
     document.getElementById("frase-Adivinada").innerHTML = palabraAdivinada;
-    document.getElementById("titulo2").innerHTML = "A Jugar!!! 🤗";
     
-    //dibujarBase();    
 }
 
 //------------------------------ Validacion del Solo Letras ----------------------------
+//-----------aplica aleta solo al input, no al usar el teclado.---------------------
 function soloLetras(e){
     //eventos del teclado, propiedad whitch que detecta las teclas al momento de precionar
     let key = e.keyCode || e.which;
     let tecla = String.fromCharCode(key).toString();//deteccion del teclado
-    let letras = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyzüéáíóúÁÉÍÓÚÜ";
-
+    let letras = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyzü";
     
     let especiales = [8,13];// teclas enter y retroceso
     let teclaEspecial = false;
@@ -53,13 +51,18 @@ function soloLetras(e){
             break;
         }
     }
+    console.log(especiales);
+    console.log(teclaEspecial);
+    console.log(letra);
     //si edentifica la tecla de retroceso, 
     if(letras.indexOf(tecla) == -1 && !teclaEspecial){
-        alert("Igrese solo letras");
+        //alert("Igrese solo letras");
+        swal({title: "Igrese solo letras"});
         return false;
     }
+    
 }
-
+console.log("letra final " + letra);
 // Verifica y descarta las repatidas y guarda para mostrar las erradas ----------------
 
 function mostrarLetrasErradas(letraIngresada){
@@ -70,13 +73,14 @@ function mostrarLetrasErradas(letraIngresada){
     if(!letrasErradas.includes(letra)){
         letrasErradas.push(letra);
         //muestro
-        //document.getElementById("tituloEquivocadas").innerHTML = "PALABRAS EQUIVOCADAS"
         errores.innerHTML = letrasErradas;
         agrego = true;
+
     }else{
         //guardo las repetidas pero no las muestro
         letrasRepetidas.push(letra);
-        alert("Ya utilizo la " +  letra);
+        //alert("Ya utilizo la " +  letra);
+        swal({title: "La letra " + letra + " ya fue utlizada"});
     }
     return agrego;
 }
