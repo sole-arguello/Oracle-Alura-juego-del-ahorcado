@@ -2,7 +2,7 @@
 Segundo desafio Oracle-One AluraLatam
 
 
-Requisitos:
+Requisitos del funcionamiento:
 - Debe funcionar solo con letras mayúsculas;
 - No deben ser utilizadas letras con acentos ni caracteres especiales;
 - Al completar o dibujo de la horca, debe ser mostrado un mensaje "Fin del juego" en la pantalla;
