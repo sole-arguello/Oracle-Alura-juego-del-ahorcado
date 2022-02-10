@@ -22,12 +22,12 @@ body{
 }
 /*parrafo de ingresar palabras*/
 #texto{
-  /*font-size: 5px;*/
+  
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 /*texto antes de ir al juego*/
 .mensaje{
-  top:10px;
+  
   margin-bottom: 15px;
   margin-top: 10px;
 }
