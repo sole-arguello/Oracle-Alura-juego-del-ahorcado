@@ -25,25 +25,28 @@ body{
   /*font-size: 5px;*/
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+/*texto antes de ir al juego*/
 .mensaje{
   top:10px;
+  margin-bottom: 15px;
+  margin-top: 10px;
 }
-
+/*botones de ingrso palabra e ir al juego*/
 .btn {
   background-color: rosybrown; 
     color: black; 
     border: 2px solid #555555;
   font-weight: bold;
   padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   border-radius: 0.5em;
 }
 .btn:hover{
   background-color: #555555;
     color: white;
 }
-
+/*ingreso de palabra*/
 .text-input {
   border-radius: 0.5em;
   border: 1px solid rgba(0, 0, 0, 0.2);
